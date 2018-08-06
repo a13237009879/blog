@@ -4,6 +4,7 @@ package com.blog.server.client.api;
  * @author admin
  *
  */
-public interface ArticleRpcClient {
+public interface ArticleRpcClient 
+{
 
 }
