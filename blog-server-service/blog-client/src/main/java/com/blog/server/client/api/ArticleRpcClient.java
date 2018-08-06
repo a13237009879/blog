@@ -31,7 +31,4 @@ public interface ArticleRpcClient
     */
    public ResultMessageDto<ArticleDetailDto> queryArticleDetailById(Integer articleId);
 
-
-
-
 } 

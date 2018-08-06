@@ -1,5 +1,7 @@
 package com.blog.server.biz.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.blog.servcer.mapper.ArticleMapper;
@@ -13,5 +15,10 @@ import com.lzl.base.biz.impl.BaseBizImpl;
  */
 @Service
 public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> implements ArticleBiz{
+
+	@Override
+	public List<Article> queryHotArticle(Integer count) {
+		return null;
+	}
 
 }
