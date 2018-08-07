@@ -1,5 +1,7 @@
 package com.blog.server.biz;
 
+import java.util.List;
+
 import com.blog.server.model.Tag;
 import com.lzl.base.biz.BaseBiz;
 /**
@@ -7,6 +9,12 @@ import com.lzl.base.biz.BaseBiz;
  * @author admin
  *
  */
-public interface TagBiz  extends BaseBiz<Tag, Integer>{
-
+public interface TagBiz extends BaseBiz<Tag, Integer>{
+	/**
+	 * 批量保存文章标签与文章关联关系
+	 * 如是新增的分类,则新增分类后在维护对应关系
+	 * @param tags
+	 * @return
+	 */
+    public boolean saveBatchTag(List<Tag> tags, Integer articleId);
 }
