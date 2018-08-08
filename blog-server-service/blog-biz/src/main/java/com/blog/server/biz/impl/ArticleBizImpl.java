@@ -66,7 +66,6 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 	    {
 	    	return true;
 	    }
-	    
 		return false;
 	}
 
