@@ -20,6 +20,13 @@ public interface ArticleBiz extends BaseBiz<Article, Integer>
 	public List<Article> queryHotArticle(Integer count);
 	
 	/**
+	 * 通过文章ID查询文章的详细信息
+	 * @param articleId 文章ID
+	 * @return 文章的详细信息集合
+	 */
+	public ArticleDetailDto queryArticleDetailById(Integer articleId);
+	
+	/**
 	 * 保存文章
 	 * @return
 	 */
@@ -43,14 +50,12 @@ public interface ArticleBiz extends BaseBiz<Article, Integer>
 	 * 点赞操作
 	 * @return
 	 */
-	public boolean addPraiseNum(String articleId, String userId);
+	public Double addPraiseNum(String articleId);
 	
 	/**
 	 * 阅读量增加
 	 * @param articleId
 	 * @return
 	 */
-	public boolean addReadingVolume(String articleId);
-	
-	
+	public Double addReadingVolume(String articleId);
 }

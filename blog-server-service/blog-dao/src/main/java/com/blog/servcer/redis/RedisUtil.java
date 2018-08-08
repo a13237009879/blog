@@ -228,7 +228,7 @@ public class RedisUtil
      * @param hashKeys 
      * @return 删除成功的 数量 
      */  
-    public void delete(String key, String ...hashKeys)
+    public void delete(Object key, Object ...hashKeys)
     {  
          redisTemplate.opsForHash().delete(key, hashKeys); 
     }  
@@ -447,8 +447,8 @@ public class RedisUtil
      * @param values 
      * @return 
      */  
-    public Long add(String key ,String ...values){  
-        return redisTemplate.opsForSet().add(key, values);  
+    public  Long sadd(String key ,Object value){  
+        return redisTemplate.opsForSet().add(key, value);
     }  
       
     /** 
@@ -654,7 +654,7 @@ public class RedisUtil
      * @param values 
      * @return 
      */  
-    public Long removeZset(String key,String ...values){  
+    public Long removeZset(Object key,Object ...values){  
         return redisTemplate.opsForZSet().remove(key, values);  
     }  
       

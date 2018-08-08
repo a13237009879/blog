@@ -25,15 +25,15 @@ public class TagBizImpl extends BaseBizImpl<TagMapper, Tag,Integer> implements T
 	private TagRelationMapper tagRelationMapper;
 	
 	@Override
-	public boolean saveBatchTag(List<Tag> tags, Integer articleId) 
+	public void saveBatchTag(List<Tag> tags, Integer articleId) 
 	{
 		if (tags == null || tags.isEmpty())
 		{
-			return false;
+			return;
 		}
 		if (articleId == null)
 		{
-			return false;
+			return;
 		}
 		List<TagRelation> relations = new ArrayList<TagRelation>();
 		TagRelation relation = null;
@@ -53,7 +53,6 @@ public class TagBizImpl extends BaseBizImpl<TagMapper, Tag,Integer> implements T
 		{
 			tagRelationMapper.batchInsert(relations);
 		}
-		return true;
 	}
 
 }
