@@ -56,6 +56,10 @@ public class ResultMessageDto<T> {
 	public static <T> ResultMessageDto<T> fail(String message, T data) {
 		return new ResultMessageDto<>(message, FAIL, data);
 	}
+	
+	public static <T> ResultMessageDto<T> fail(String message) {
+		return new ResultMessageDto<>(message, FAIL, null);
+	}
 
 	public T getData() {
 		return data;

@@ -4,7 +4,7 @@ package com.blog.server.exception;
  * @author admin
  *
  */
-public class BlogException extends RuntimeException{
+public class BlogException extends Throwable{
 
 	/**
 	 * 

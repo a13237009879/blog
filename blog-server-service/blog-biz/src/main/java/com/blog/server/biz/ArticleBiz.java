@@ -3,6 +3,7 @@ package com.blog.server.biz;
 import java.util.List;
 
 import com.blog.server.client.dto.ArticleDetailDto;
+import com.blog.server.exception.BlogException;
 import com.blog.server.model.Article;
 import com.lzl.base.biz.BaseBiz;
 /**
@@ -24,33 +25,33 @@ public interface ArticleBiz extends BaseBiz<Article, Integer>
 	 * @param articleId 文章ID
 	 * @return 文章的详细信息集合
 	 */
-	public ArticleDetailDto queryArticleDetailById(Integer articleId);
+	public ArticleDetailDto queryArticleDetailById(Integer articleId) throws BlogException ;
 	
 	/**
 	 * 保存文章
 	 * @return
 	 */
-	public boolean saveArticle(ArticleDetailDto article);
+	public boolean saveArticle(ArticleDetailDto article) throws BlogException;
 	
 	/**
 	 * 发布文章
 	 * @param article
 	 * @return
 	 */
-	public boolean pushArticle(ArticleDetailDto article);
+	public boolean pushArticle(ArticleDetailDto article) throws BlogException ;
 	
 	/**
 	 * 修改文章
 	 * @param article
 	 * @return
 	 */
-	public boolean updateArticle(ArticleDetailDto article);
+	public boolean updateArticle(ArticleDetailDto article) throws BlogException;
 	
 	/**
 	 * 点赞操作
 	 * @return
 	 */
-	public Double addPraiseNum(String articleId);
+	public Double addPraiseNum(String articleId) throws BlogException ;
 	
 	/**
 	 * 阅读量增加

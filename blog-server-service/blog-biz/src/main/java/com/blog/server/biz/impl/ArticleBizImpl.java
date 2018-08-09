@@ -49,7 +49,7 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 
 	@Override
 	@Transactional(rollbackFor=Exception.class)
-	public boolean saveArticle(ArticleDetailDto articleDto) 
+	public boolean saveArticle(ArticleDetailDto articleDto) throws BlogException 
 	{
 		if (articleDto == null)
 		{
@@ -79,7 +79,7 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 
 	@Override
 	@Transactional(rollbackFor=Exception.class)
-	public boolean updateArticle(ArticleDetailDto articleDto) 
+	public boolean updateArticle(ArticleDetailDto articleDto) throws BlogException  
 	{
 		if (articleDto == null)
 		{
@@ -105,7 +105,7 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 	}
 
 	@Override
-	public Double addPraiseNum(String articleId) 
+	public Double addPraiseNum(String articleId) throws BlogException 
 	{
 		if (redisUtil.isMember(RedisKey.ARTICLE_PRAISE_NUM_USER_KEY + articleId,null))
 		{
@@ -123,7 +123,7 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 
 	@Override
 	@Transactional(rollbackFor=Exception.class)
-	public boolean pushArticle(ArticleDetailDto articleDto) 
+	public boolean pushArticle(ArticleDetailDto articleDto) throws BlogException  
 	{
 		Article article = articleDto.getArticle();
 		Integer state = article.getState();
@@ -143,7 +143,7 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 	}
 
 	@Override
-	public ArticleDetailDto queryArticleDetailById(Integer articleId) 
+	public ArticleDetailDto queryArticleDetailById(Integer articleId) throws BlogException  
 	{
 		Article article = mapper.selectByPrimaryKey(articleId);
 		if (article == null)
