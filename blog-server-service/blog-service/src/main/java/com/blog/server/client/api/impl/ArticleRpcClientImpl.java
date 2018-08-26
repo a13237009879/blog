@@ -1,4 +1,4 @@
-package com.blog.server.client.impl;
+package com.blog.server.client.api.impl;
 
 import java.util.List;
 

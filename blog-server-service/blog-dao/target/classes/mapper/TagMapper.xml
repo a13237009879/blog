@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blog.servcer.mapper.TagMapper" >
+  <resultMap id="BaseResultMap" type="com.blog.server.model.Tag" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TAG_NAME" property="tagName" jdbcType="VARCHAR" />
+    <result column="TAG_CODE" property="tagCode" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_USER" property="createUser" jdbcType="INTEGER" />
+    <result column="UPDATE_USER" property="updateUser" jdbcType="INTEGER" />
+    <result column="DELETE_FLAG" property="deleteFlag" jdbcType="INTEGER" />
+    <result column="TAG_ICON" property="tagIcon" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TAG_NAME, TAG_CODE, CREATE_TIME, UPDATE_TIME, CREATE_USER, UPDATE_USER, DELETE_FLAG, 
+    TAG_ICON
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from b_tags
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from b_tags
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.blog.server.model.Tag" >
+    insert into b_tags (ID, TAG_NAME, TAG_CODE, 
+      CREATE_TIME, UPDATE_TIME, CREATE_USER, 
+      UPDATE_USER, DELETE_FLAG, TAG_ICON
+      )
+    values (#{id,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, #{tagCode,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=INTEGER}, 
+      #{updateUser,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{tagIcon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.server.model.Tag" >
+    insert into b_tags
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="tagName != null" >
+        TAG_NAME,
+      </if>
+      <if test="tagCode != null" >
+        TAG_CODE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="createUser != null" >
+        CREATE_USER,
+      </if>
+      <if test="updateUser != null" >
+        UPDATE_USER,
+      </if>
+      <if test="deleteFlag != null" >
+        DELETE_FLAG,
+      </if>
+      <if test="tagIcon != null" >
+        TAG_ICON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tagName != null" >
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagCode != null" >
+        #{tagCode,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tagIcon != null" >
+        #{tagIcon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blog.server.model.Tag" >
+    update b_tags
+    <set >
+      <if test="tagName != null" >
+        TAG_NAME = #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="tagCode != null" >
+        TAG_CODE = #{tagCode,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        CREATE_USER = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateUser != null" >
+        UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null" >
+        DELETE_FLAG = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="tagIcon != null" >
+        TAG_ICON = #{tagIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blog.server.model.Tag" >
+    update b_tags
+    set TAG_NAME = #{tagName,jdbcType=VARCHAR},
+      TAG_CODE = #{tagCode,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      CREATE_USER = #{createUser,jdbcType=INTEGER},
+      UPDATE_USER = #{updateUser,jdbcType=INTEGER},
+      DELETE_FLAG = #{deleteFlag,jdbcType=INTEGER},
+      TAG_ICON = #{tagIcon,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,25 @@
+server:
+  port: 8081  
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  dubbo:
+    application:
+      name: consumer-blog-app
+    base-package: com.blog.server.client.api  # dubbo服务发布者实现类注解@service所在的包
+    registry:
+      address: 127.0.0.1                   # zookeeper注册中心的地址
+      port: 2181                           # zookeeper注册中心的端口
+    protocol:
+      name: dubbo
+      serialization: hessian2
+    provider:
+      retries: 0                           # 服务调用重试次数，服务发布者不给重试，让服务调用者自己重试     
+logging:
+  file: D:/log.log
+  config: classpath:config/logback.xml
+  level:
+    com.sf.xx : debug
+debug: true

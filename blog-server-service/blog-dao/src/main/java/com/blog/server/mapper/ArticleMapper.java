@@ -1,4 +1,4 @@
-package com.blog.servcer.mapper;
+package com.blog.server.mapper;
 
 import java.util.List;
 import java.util.Set;

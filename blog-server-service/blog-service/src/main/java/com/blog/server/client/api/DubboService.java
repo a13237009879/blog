@@ -1,4 +1,4 @@
-package com.blog.server.client;
+package com.blog.server.client.api;
 
 import java.io.IOException;
 

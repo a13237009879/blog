@@ -1,4 +1,4 @@
-package com.blog.servcer.mapper;
+package com.blog.server.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import com.blog.server.model.Review;

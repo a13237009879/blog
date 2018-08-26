@@ -1,4 +1,4 @@
-package com.blog.server.client.utils;
+package com.blog.server.client.api.utils;
 
 import java.util.Date;
 
