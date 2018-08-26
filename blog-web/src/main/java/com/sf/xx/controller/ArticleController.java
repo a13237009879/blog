@@ -14,7 +14,7 @@ import com.blog.server.model.Article;
 import com.reger.dubbo.annotation.Inject;
 
 @RestController
-@RequestMapping("/acticle")
+@RequestMapping("/article")
 public class ArticleController 
 {
    @Inject
