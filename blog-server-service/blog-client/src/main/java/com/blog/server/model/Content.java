@@ -6,7 +6,7 @@ import com.lzl.base.model.BaseModel;
  * @author admin
  *
  */
-public class Content  extends BaseModel<Integer>{
+public class Content extends BaseModel<Integer>{
 
 	/**
 	 * 

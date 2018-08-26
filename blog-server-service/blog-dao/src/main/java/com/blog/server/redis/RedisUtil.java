@@ -1,21 +1,24 @@
-package com.blog.servcer.redis;
+package com.blog.server.redis;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ZSetOperations.TypedTuple;  
+import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
+import org.springframework.stereotype.Component;  
   
 /**
  * redis工具类  
  * @author admin
  *
  */
+@Component
 public class RedisUtil 
 {  
-      
+	@Autowired
     private RedisTemplate<Object,Object> redisTemplate;  
       
     public RedisTemplate<Object,Object> getInstance()

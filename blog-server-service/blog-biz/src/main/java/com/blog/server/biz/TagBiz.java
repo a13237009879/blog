@@ -16,4 +16,10 @@ public interface TagBiz extends BaseBiz<Tag, Integer>{
 	 * @param tags
 	 */
     public void saveBatchTag(List<Tag> tags, Integer articleId);
+    
+    /**
+     * 查询出标签值集合
+     * @return 返回所有的标签值
+     */
+    public List<Tag> queryAllTag();
 }

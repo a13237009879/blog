@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.blog.servcer.mapper.TagMapper;
-import com.blog.servcer.mapper.TagRelationMapper;
 import com.blog.server.biz.TagBiz;
+import com.blog.server.mapper.TagMapper;
+import com.blog.server.mapper.TagRelationMapper;
 import com.blog.server.model.Tag;
 import com.blog.server.model.TagRelation;
 import com.lzl.base.biz.impl.BaseBizImpl;
@@ -25,6 +26,7 @@ public class TagBizImpl extends BaseBizImpl<TagMapper, Tag,Integer> implements T
 	private TagRelationMapper tagRelationMapper;
 	
 	@Override
+	@Transactional(rollbackFor=Exception.class)
 	public void saveBatchTag(List<Tag> tags, Integer articleId) 
 	{
 		if (tags == null || tags.isEmpty())
@@ -53,6 +55,12 @@ public class TagBizImpl extends BaseBizImpl<TagMapper, Tag,Integer> implements T
 		{
 			tagRelationMapper.batchInsert(relations);
 		}
+	}
+
+	@Override
+	public List<Tag> queryAllTag() 
+	{
+		return mapper.selectListByParam(new Tag());
 	}
 
 }
