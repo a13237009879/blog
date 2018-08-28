@@ -49,13 +49,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) 
 	{
-		registry.addViewController("/index").setViewName("index");
 	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) 
 	{
-		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/");
 	}
 
 	@Bean
@@ -63,7 +62,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 	{
 		FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
 		resolver.setCache(false);
-		resolver.setPrefix("");
+		resolver.setPrefix("/html/");
 		resolver.setSuffix(".html");
 		resolver.setContentType("text/html; charset=UTF-8");
 		resolver.setRequestContextAttribute("request");

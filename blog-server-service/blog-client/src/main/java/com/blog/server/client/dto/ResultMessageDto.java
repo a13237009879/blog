@@ -1,11 +1,17 @@
 package com.blog.server.client.dto;
 
+import java.io.Serializable;
+
 /**
  * 数据返回对象
  * @author admin
  *
  */
-public class ResultMessageDto<T> {
+public class ResultMessageDto<T> implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2451838812781035792L;
 	// 提示信息
 	private String message;
     // 是否成功

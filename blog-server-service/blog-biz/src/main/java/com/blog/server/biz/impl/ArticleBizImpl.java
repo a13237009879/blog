@@ -1,5 +1,6 @@
 package com.blog.server.biz.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -44,7 +45,15 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 		// 计算热点值
 		redisUtil.intersectAndStore(RedisKey.ARTICLE_PRAISE_NUM_KEY, RedisKey.ARTICLE_PUSH_TIME_KEY, RedisKey.HOT_KEY);
 		Set<Object> articleIds = redisUtil.reverseRange(RedisKey.HOT_KEY, 0, count);
-		return mapper.queryArticleByIds(articleIds);
+		if (articleIds == null || articleIds.isEmpty())
+		{
+			return new ArrayList<>();
+		}
+		List<String> ids = new ArrayList<>();
+		for (Object obj : articleIds) {
+			ids.add(obj.toString());
+		}
+		return mapper.queryArticleByIds(ids);
 	}
 
 	@Override
@@ -140,6 +149,10 @@ public class ArticleBizImpl extends BaseBizImpl<ArticleMapper, Article,Integer> 
 		redisUtil.sadd(RedisKey.ARTICLE_PRAISE_NUM_USER_KEY + articleId, null);
 		redisUtil.add(RedisKey.ARTICLE_PUSH_TIME_KEY, articleId, curDate.getTime());
 		return true;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new Date().getTime());
 	}
 
 	@Override

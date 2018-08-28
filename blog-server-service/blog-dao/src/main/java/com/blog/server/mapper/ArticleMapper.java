@@ -1,9 +1,9 @@
 package com.blog.server.mapper;
 
 import java.util.List;
-import java.util.Set;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.blog.server.model.Article;
 import com.lzl.base.mapper.BaseMapper;
@@ -20,5 +20,5 @@ public interface ArticleMapper extends BaseMapper<Article, Integer>
 	 * @param ids
 	 * @return
 	 */
-    public List<Article> queryArticleByIds(Set<Object> ids);
+    public List<Article> queryArticleByIds(@Param("ids")List<String> ids);
 }

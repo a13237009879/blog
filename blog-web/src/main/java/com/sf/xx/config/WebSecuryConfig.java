@@ -1,4 +1,4 @@
-package com.sf.xx.config;
+/*package com.sf.xx.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -8,9 +8,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecuryConfig extends WebSecurityConfigurerAdapter
 {
 
-	 /**
+	 *//**
      * 重写该方法，添加自定义用户
-     * */
+     * *//*
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
@@ -21,7 +21,7 @@ public class WebSecuryConfig extends WebSecurityConfigurerAdapter
         .withUser("larry").password("larry").roles("USER");
     }
 	
-	/*@Override
+	@Override
 	protected void configure(HttpSecurity http) throws Exception 
 	{
 		 http.csrf().disable().cors().disable().headers().disable()//禁止以上过滤器
@@ -32,6 +32,7 @@ public class WebSecuryConfig extends WebSecurityConfigurerAdapter
 			         .defaultSuccessUrl("/admin")//登录后跳转地址
 					 .permitAll()
 					 .and().logout().logoutSuccessUrl("/login").permitAll();//配置注销成功后页面
-	}*/
+	}
 	
 }
+*/
